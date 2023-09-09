@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/home.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-sidebar">
+            <img id="logo" src="/assets/ig.png" alt="">
+            <div class="ops-list">
+                <a href="#">
+                    <img src="/assets/asset 41.svg" alt=""><b>Home</b>
+                </a>
+                <a href="#">
+                    <img src="/assets/asset 42.svg" alt="">Search
+                </a>
+                <a href="#">
+                    <img src="/assets/asset 43.svg" alt="">Explore
+                </a>
+                <a href="#">
+                    <img src="/assets/asset 44.svg" alt="">Reels
+                </a>
+                <a href="#">
+                    <img src="/assets/asset 45.svg" alt="">Messages
+                </a>
+                <a href="#">
+                    <img src="/assets/asset 46.svg" alt="">Notifications
+                </a>
+                <a href="/new">
+                    <img src="/assets/asset 47.svg" alt="">Create
+                </a>
+                <a href="#">
+                    <img src="/assets/profile.png" alt="">Profile
+                </a>
+                <a href="#" id="more">
+                    <img src="/assets/asset 48.svg" alt="">More
+                </a>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="main-content">
+            <div class="story-div">
+                <div class="story">
+                    <img src="/assets/pic1.jpeg" alt="">
+                    <p style="margin: 0;">aparna_de..</p>
+                </div>
+                <div class="story">
+                    <img src="/assets/pic2.jpeg" alt="">
+                    <p style="margin: 0;">aish_sh..</p>
+                </div>
+                <div class="story">
+                    <img src="/assets/pic3.jpeg" alt="">
+                    <p style="margin: 0;">rashmika..</p>
+                </div>
+                <div class="story">
+                    <img src="/assets/pic4.jpeg" alt="">
+                    <p style="margin: 0;">imouni_ro..</p>
+                </div>
+                <div class="story">
+                    <img src="/assets/pic5.jpeg" alt="">
+                    <p style="margin: 0;">disha_pat..</p>
+                </div>
+                <div class="story">
+                    <img src="/assets/pic6.jpeg" alt="">
+                    <p style="margin: 0;">bhavika_sh..</p>
+                </div>
+                <div class="story">
+                    <img src="/assets/pic7.jpeg" alt="">
+                    <p style="margin: 0;">ayesha_si..</p>
+                </div>
+            </div>
+
+            <% for( posts of postArr){ %>
+
+                <div class="post">
+                    <div class="user">
+                        <img src=<%=posts.profilepic %> class="person" alt="">
+                        <div class="post-details">
+                            <h4 style="margin: 0;">
+                                <%= posts.username %>
+                            </h4>
+                        </div>
+                        <img id="three-dot" style="position: absolute; right: 0;" src="/assets/asset 49.svg" alt="">
+                    </div>
+                    <!-- options div on clicking the three dots -->
+                    <% if(posts.username=="your_username_123") {%>
+                    <div class="optionsForU">
+                        <form method="post" action="/home/<%= posts.id %>?_method=DELETE">
+                            <button style="color: red; border: none; background-color: transparent;" >Delete</button>
+                        </form>
+                        <hr>
+                        <a href="http://localhost:8080/home/<%= posts.id %>/edit">Edit</a>
+                        <hr>
+                        <a href="">Hide like count</a>
+                        <hr>
+                        <a href="">Turn off commenting</a>
+                        <hr>
+                        <a href="http://localhost:8080/home/<%= posts.id %>/view">Go to Post</a>
+                        <hr>
+                        <a href="">About this account</a>
+                        <hr>
+                        <a href="" id="cancel">Cancel</a>
+                    </div>
+                    <% } else{ %>
+                    
+                        <div class="optionsForU" style="height: 350px;">
+                            <a href="" style="color: red;">Report</a>
+                            <hr>
+                            <a href="" style="color: red;">Unfollow</a>
+                            <hr>
+                            <a href="">Add to favourites</a>
+                            <hr>
+                            <a href="http://localhost:8080/home/<%= posts.id %>/view">Go to Post</a>
+                            <hr>
+                            <a href="">Share to...</a>
+                            <hr>
+                            <a href="">Copy link</a>
+                            <hr>
+                            <a href="">Embed</a>
+                            <hr>
+                            <a href="" id="cancel">Cancel</a>
+                        </div>
+                        <% } %>
+                    
+
+                    <img style="height: 30rem; width: 100%;" src=<%=posts.postImg %> alt="">
+
+                    <div class="reactions">
+                        <div class="reaction">
+                            <img src="/assets/asset 51.svg" alt="">
+                            <img src="/assets/asset 52.svg" alt="">
+                            <img src="/assets/asset 54.svg" alt="">
+                        </div>
+                        <div class="save">
+                            <img src="/assets/asset 55.svg" alt="">
+                        </div>
+                    </div>
+                    <h4 style="margin:0.6rem 0;">
+                        <%= posts.likes %> likes
+                    </h4>
+                    <div class="caption">
+                        <p style="margin: 0;">
+                            <b>
+                                <%= posts.username %>
+                            </b>
+                            <%= posts.caption %></a>
+                        </p>
+                        <p style="margin-top: 0.4rem; color: rgba(0,0,0,0.6);">more</p>
+                        <p style="color: rgba(0,0,0,0.6); margin: 0.5rem 0;">View all comments</p>
+                        <div class="cmnt" style="display: flex; justify-content: space-between;">
+                            <p style="color: rgba(0,0,0,0.6); margin: 0.6rem 0 1rem;">Add a comment...</p>
+                            <img src="/assets/asset 56.svg">
+                        </div>
+                    </div>
+                    <hr style="background-color:rgba(0,0,0,0.2);">
+                </div>
+                <% } %>
+        </div>
+
+
+        <div class="right-sidebar">
+            <div class="id-name">
+                <img class="pic" src="/assets/profile.png" alt="">your_username_123
+                <a href="#" style="color: #1876f2; text-decoration: none; margin-left: 4rem;">Switch</a>
+            </div>
+            <div class="id-name" style="margin: auto;">
+                <h4 style="color: rgba(0,0,0,0.4);">Suggested for you</h4>
+                <a href="#" style="color: black; text-decoration: none; margin-left: 8rem;">See All</a>
+            </div>
+            <div class="id-name">
+                <img class="pic" src="/assets/suggest1.jpeg" alt="">
+                <div class="id-details">
+                    <h4 style="margin: 0;">rishabh_sharma123</h4>
+                    <h6 style="margin: 0; color:rgba(0,0,0,0.4);">Followed by @abc_123 and ...</h6>
+                </div>
+                <a href="#" style="color: #1876f2; text-decoration: none; margin-left: 4rem;">Follow</a>
+            </div>
+            <div class="id-name">
+                <img class="pic" src="/assets/suggest2.jpeg" alt="">
+                <div class="id-details">
+                    <h4 style="margin: 0;">bhavani_Chavan</h4>
+                    <h6 style="margin: 0; color:rgba(0,0,0,0.4);">Followed by @abc_123 and ...</h6>
+                </div>
+                <a href="#" style="color: #1876f2; text-decoration: none; margin-left: 4rem;">Follow</a>
+            </div>
+            <div class="id-name">
+                <img class="pic" src="/assets/suggest3.jpeg" alt="">
+                <div class="id-details">
+                    <h4 style="margin: 0;">keerthy_Suresh</h4>
+                    <h6 style="margin: 0; color:rgba(0,0,0,0.4);">Followed by @abc_123 and ...</h6>
+                </div>
+                <a href="#" style="color: #1876f2; text-decoration: none; margin-left: 4rem;">Follow</a>
+            </div>
+            <div class="id-name">
+                <img class="pic" src="/assets/suggest4.jpeg" alt="">
+                <div class="id-details">
+                    <h4 style="margin: 0;">Miss_savi</h4>
+                    <h6 style="margin: 0; color:rgba(0,0,0,0.4);">Followed by @abc_123 and ...</h6>
+                </div>
+                <a href="#" style="color: #1876f2; text-decoration: none; margin-left: 4rem;">Follow</a>
+            </div>
+            <div class="id-name">
+                <img class="pic" src="/assets/suggest5.jpeg" alt="">
+                <div class="id-details">
+                    <h4 style="margin: 0;">Bhatt_Niel</h4>
+                    <h6 style="margin: 0; color:rgba(0,0,0,0.4);">Followed by @abc_123 and ...</h6>
+                </div>
+                <a href="#" style="color: #1876f2; text-decoration: none; margin-left: 4rem;">Follow</a>
+            </div>
+        </div>
+    </div>
+    <script src="/home.js"></script>
+</body>
+
+</html>

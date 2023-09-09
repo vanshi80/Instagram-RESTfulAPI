@@ -1,0 +1,124 @@
+:root{
+    --icon-width:1.5rem;
+    --icon-height:1.5rem;
+}
+#logo{
+    height: 3rem;
+    width: 7rem;
+    margin: 1rem 2rem ;
+}
+
+.ig-icons img{
+    height: 2rem;
+    width: 3rem;
+}
+.container{
+    display: flex;
+}
+.left-sidebar{
+    flex-basis: 20%;
+    position: sticky;
+    top:20px;
+    left: 10px;
+    align-self: flex-start;
+}
+
+.ops-list a{
+    border-radius: 10px;
+    padding: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 1.2rem;
+    margin:0 2rem ;
+}
+
+.ops-list img{
+    padding-right: 1rem;
+    height: var(--icon-height);
+    width: var(--icon-width);
+}
+.ops-list a:hover{
+    background-color: #e0e0e0;
+    --icon-height:1.7rem;
+    --icon-width:1.7rem;
+}
+#more{
+    margin-top: 2.5rem;
+    margin-bottom: 0;
+}
+
+.line{
+    height: auto;
+    width: 2px;
+    background-color: rgba(0,0,0,0.3);
+}
+.main-content{
+    flex-basis:80%;
+    position: relative;
+}
+.post-view{
+    width: 70%;
+    height: 90%;
+    border: 0.8px solid rgba(0,0,0,0.3);
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.post {
+    width: 50%;
+    height: 100%;
+}
+.post img{
+    width: 100%;
+    height: 100%;
+}
+.desc{
+    width: 50%;
+    height: 100%;
+}
+.user{
+    padding:0 0.4rem;
+    display: flex;
+    align-items: center;
+}
+.person{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin: 1rem 0.5rem 1rem 0;
+}
+.post-details{
+    margin-top: 0.4rem;
+}
+.bottom-div{
+    width: 45%;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    border-top: 0.8px solid rgba(0,0,0,0.3);
+
+}
+.reactions{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reactions img{
+    width: 1.5rem;
+    margin-right: 0.3rem;
+}
+.comments{
+    height: 60%;
+    overflow: auto;
+}
+.pic{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin-right: 0.7rem;
+}
